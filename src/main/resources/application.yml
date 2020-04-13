@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:sjsbazx
+    username: lk
+    password: lk
+  thymeleaf:
+    cache: false
+    prefix: classpath:/template/
+    suffix: .html
+    encoding: utf-8
+    mode: LEGACYHTML5
+  devtools:
+    restart:
+      enabled: true
+    #content-type: text/html
+server:
+  port: 8088
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl     #完整带参数SQL语句输出到控制台
+
+

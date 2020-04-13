@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据录入</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <script src="../layui/jquery-3.4.1.min.js"></script>
+    <script src="../layui/layui.js"></script>
+    <script src="../js/adddzjz.js"></script>
+</head>
+<body>
+
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 40px; bottom: 10px;">
+    <legend>数据录入</legend>
+</fieldset>
+<form class="layui-form">
+    <div class="layui-form-item">
+    <div class="layui-inline">
+        <label class="layui-form-label">办案单位</label>
+        <div class="layui-input-inline">
+            <select name="badw" id="badwid" lay-verify="required" lay-reqtext="办案单位是必填项，岂能为空？" lay-search="">
+                <option value="">直接选择或搜索选择</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-inline">
+        <label class="layui-form-label">日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="time" id="date" lay-reqtext="日期是必填项，岂能为空？" lay-verify="required" placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    </div>
+    <div class="layui-form-item">
+    <div class="layui-inline">
+        <label class="layui-form-label">案件数量</label>
+        <div class="layui-input-inline">
+            <input type="text" name="ajsl"  placeholder="案件数量" lay-verify="required|number" lay-reqtext="案件数量是必填项，岂能为空？" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label class="layui-form-label">案件性质</label>
+        <div class="layui-input-inline">
+            <select name="ajxz" id="ajxzid" lay-verify="required" lay-reqtext="案件性质是必填项，岂能为空？" lay-search="">
+                <option value="">直接选择或搜索选择</option>
+            </select>
+        </div>
+    </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">办案民警</label>
+        <div class="layui-input-block">
+            <input type="text" name="bamj" style="width: 350px" lay-verify="required" lay-reqtext="办案民警是必填项，岂能为空？" autocomplete="off" placeholder="办案民警" class="layui-input">
+        </div>
+
+    </div>
+    <div  class="layui-form-item">
+        <label class="layui-form-label">案件编号</label>
+        <div class="layui-input-block">
+            <input type="text" style="width: 350px" name="ajbh" lay-verify="required" lay-reqtext="案件编号是必填项，岂能为空？" autocomplete="off" placeholder="案件编号" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否上传电子卷宗</label>
+        <div class="layui-input-block">
+            <input type="radio" name="isdzjz" value="1" title="是" lay-filter="isdzjzf" />
+            <input type="radio" name="isdzjz" value="2" title="否" lay-filter="isdzjzf" checked=""/>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text isdzjzs">
+        <label class="layui-form-label">未上传电子卷宗原因</label>
+        <div class="layui-input-block">
+            <textarea name="wscyy" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item" >
+        <label class="layui-form-label">案卷材料是否包含笔录</label>
+        <div class="layui-input-block">
+            <input type="radio" name="isbl" lay-filter="isblf" value="1" title="是"  />
+            <input type="radio" name="isbl" lay-filter="isblf" value="2" title="否"  checked=""/>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-form-text isbls">
+        <label class="layui-form-label">不包含笔录原因</label>
+        <div class="layui-input-block">
+            <textarea name="wbhyy" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

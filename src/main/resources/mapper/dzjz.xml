@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.rjk.mp.mapper.DzjzMapper">
+
+    <select id="getCode" resultType="org.rjk.mp.model.Code" parameterType="java.lang.String">
+        select * from lk.CODE where codeclass = #{codeclass}
+    </select>
+    
+   <!-- <select id="getInfo" resultType="org.rjk.mp.model.Dzjz">
+     SELECT *
+
+    FROM (SELECT tt.*, ROWNUM AS rowno FROM ( SELECT
+	( SELECT codedesc FROM lk.code c WHERE c.codeclass = 'BADW' AND c.code = d.badw ) AS badw,
+	time,
+	ajsl,
+	( SELECT codedesc FROM lk.code c WHERE c.codeclass = 'AJXZ' AND c.code = d.ajxz ) AS ajxz,
+	bamj,
+	ajbh,
+	( CASE isdzjz WHEN 1 THEN '是' WHEN 2 THEN '否' ELSE '未知' END ) AS isdzjz,
+	wscyy,
+	wbhyy,
+	( CASE isbl WHEN 1 THEN '是' WHEN 2 THEN '否' ELSE '未知' END ) AS isbl
+    FROM
+	lk.dzjz d
+    WHERE
+	isdel = 0
+    ORDER BY
+	time DESC ) tt) table_alias
+
+    WHERE table_alias.rowno BETWEEN #{page} AND #{limit}
+    </select>-->
+
+</mapper>
