@@ -16,4 +16,8 @@ public class IndexController {
         return "adddzjz";
     }
 
+    @RequestMapping("/")
+    public String denglu(){
+        return "denglu";
+    }
 }

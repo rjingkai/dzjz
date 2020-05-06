@@ -3,15 +3,14 @@ package org.rjk.mp.controller;
 import org.rjk.mp.mapper.UserMapper;
 import org.rjk.mp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
 @RequestMapping("/user")
+@RestController
 public class UserController {
 
     @Autowired
@@ -53,6 +52,22 @@ public class UserController {
         }else {
             map.put("code","1");
             map.put("msg","失败！");
+        }
+        return map;
+    }
+
+
+
+    @RequestMapping("/login")
+    public Map<String, String> denglu(@RequestBody User user) {
+        User u = userMapper.denglu(user);
+        Map<String, String> map = new HashMap<>();
+        if (u == null) {
+            map.put("code", "1");
+            map.put("msg", "用户名密码错误！");
+        } else {
+            map.put("code", "0");
+            map.put("msg", "登录成功！");
         }
         return map;
     }
