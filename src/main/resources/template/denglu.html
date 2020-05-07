@@ -64,14 +64,16 @@
         }
 
     </style>
+    <script src="../layui/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="layui/layui.js"></script>
     <script type="text/javascript" src="../js/denglu.js"></script>
     <title>登录</title>
 </head>
 <body>
-<form class="layui-form" action="/user/dl" method="post">
+<div class="layui-form">
     <div class="container">
-        <div class="layui-form-item">
+
+        <div class="layui-form-item" style="margin-top:60px">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
                 <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
@@ -99,7 +101,7 @@
         </div>
 
     </div>
-</form>
+</div>
 
 </body>
 </html>

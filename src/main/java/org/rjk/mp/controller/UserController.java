@@ -5,6 +5,7 @@ import org.rjk.mp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,17 +59,26 @@ public class UserController {
 
 
 
-    @RequestMapping("/login")
-    public Map<String, String> denglu(@RequestBody User user) {
+    @RequestMapping("/dl")
+    public Map<String, String> denglu(String username, String password, HttpSession session) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
         User u = userMapper.denglu(user);
         Map<String, String> map = new HashMap<>();
         if (u == null) {
             map.put("code", "1");
             map.put("msg", "用户名密码错误！");
         } else {
+            String orgid = userMapper.getOrg(u.getUserid());
             map.put("code", "0");
-            map.put("msg", "登录成功！");
+            map.put("msg", orgid);
+            session.setAttribute("username",u.getUsername());
+            session.setAttribute("name",u.getName());
+            session.setAttribute("orgid",orgid);
+
         }
+
         return map;
     }
 }

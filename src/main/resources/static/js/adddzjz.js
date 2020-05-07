@@ -6,7 +6,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
         ,laydate = layui.laydate;
 
 
-    getBadw();
+   // getBadw();
 
     function getBadw() {
         $.ajax({
@@ -106,7 +106,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
             data : JSON.stringify(res.field),
             success: function (data) {
                 var data = data;
-                alert(data);
                 if (data.code == 1) {
                     layer.alert('成功！', {
                         icon: 6,

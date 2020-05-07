@@ -6,7 +6,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 
 
         //监听提交
-        form.on('submit(formDemo)', function(data){
+        form.on('submit(formDemo)', function(res){
              var loginLoading = top.layer.msg('登录中，请稍候',
                 {
                     icon : 16,
@@ -14,39 +14,42 @@ layui.use(['form', 'layedit', 'laydate'], function(){
                     shade : 0.8
                 }
                 );
-            //记录ajax请求返回值
-            var ajaxReturnData;
-             //登陆验证
-            $.ajax(
-            {
-                url : '/user/login',
-                type : 'post',
-                async : false,
-                data : data.field,
-                success : function (data)
-                {
-                    ajaxReturnData = data;
-                }
-            }
-            );
 
-            //登陆成功
-            if (ajaxReturnData.code == 0)
-            {
-                window.location.href = "/dzjz/getInfo";
-                top.layer.close(loginLoading);
-                return false;
-            }
-            else
-            {
-                top.layer.close(loginLoading);
-                top.layer.msg(ajaxReturnData.msg,
-                {
-                    icon : 5
-                }
-                );
-                return false;
-            }
+                //登陆验证
+                $.ajax({
+                    url : '/user/dl',
+                    type : 'post',
+                    datatype:'json',
+                    data : {username:res.field.username,password:res.field.password},
+                    success:function (data){
+                        if(data.code == 0){
+                            if(data.msg == '100000'){
+                                window.location.href = "/index";
+                                top.layer.close(loginLoading);
+                                return false;
+                            }else{
+                                window.location.href = "/indexpcs";
+                                top.layer.close(loginLoading);
+                                return false;
+                            }
+                        } else{
+                             top.layer.close(loginLoading);
+                             top.layer.msg(data.msg,
+                             {
+                                 icon : 5
+                             }
+                             );
+                             return false;
+                         }
+
+                    },
+                    error:function(e){
+                        alert('登录出错.....');
+                    },
+                    fail:function(e){
+                        alert("登录失败。。。。");
+                    }
+                });
 
         });
 

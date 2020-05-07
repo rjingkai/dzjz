@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@192.168.1.199:1521:sjsbazx
+    url: jdbc:oracle:thin:@192.168.1.198:1521:sjsbazx
     username: lk
     password: lk
   thymeleaf:
@@ -21,4 +21,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl     #完整带参数SQL语句输出到控制台
 
+#管理员的orgID
+orgid: 100000
 
