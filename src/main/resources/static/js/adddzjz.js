@@ -49,12 +49,12 @@ layui.use(['form', 'layedit', 'laydate'], function(){
        var d = data.value;
         if(d == '2'){
             $(".isdzjzs").show();
-            $(".isdzjzs").attr("lay-verify","required");
-            $(".isdzjzs").attr("lay-reqtext","未上传电子卷宗原因必填");
+//            $(".isdzjzs").attr("lay-verify","required");
+//            $(".isdzjzs").attr("lay-reqtext","未上传电子卷宗原因必填");
         }else{
             $(".isdzjzs").hide();
-            $(".isdzjzs").removeAttr("lay-verify");
-            $(".isdzjzs").removeAttr("lay-reqtext");
+//            $(".isdzjzs").removeAttr("lay-verify");
+//            $(".isdzjzs").removeAttr("lay-reqtext");
         }
     });
 
@@ -62,12 +62,12 @@ layui.use(['form', 'layedit', 'laydate'], function(){
         var d = data.value;
         if(d == '2'){
             $(".isbls").show();
-            $(".isbls").attr("lay-verify","required");
-            $(".isbls").attr("lay-reqtext","没有笔录原因必填");
+//            $(".isbls").attr("lay-verify","required");
+//            $(".isbls").attr("lay-reqtext","没有笔录原因必填");
         }else{
             $(".isbls").hide();
-            $(".isbls").removeAttr("lay-verify");
-            $(".isbls").removeAttr("lay-reqtext");
+//            $(".isbls").removeAttr("lay-verify");
+//            $(".isbls").removeAttr("lay-reqtext");
         }
     });
     //创建一个编辑器

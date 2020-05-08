@@ -1,8 +1,14 @@
+
+
+
 layui.use(['form', 'layedit', 'laydate'], function(){
         var form = layui.form
             ,layer = layui.layer
             ,layedit = layui.layedit
-            ,laydate = layui.laydate;
+            ,laydate = layui.laydate
+            ,$ = layui.jquery;
+
+
 
 
         //监听提交

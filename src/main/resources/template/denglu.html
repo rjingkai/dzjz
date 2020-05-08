@@ -96,12 +96,18 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+                <button class="layui-btn" id="loginbtn" lay-submit lay-filter="formDemo">登录</button>
             </div>
         </div>
 
     </div>
 </div>
-
+<script>
+       $(document).keydown(function (e) {
+            if (e.keyCode === 13) {
+                $("#loginbtn").trigger("click");
+            }
+        });
+</script>
 </body>
 </html>

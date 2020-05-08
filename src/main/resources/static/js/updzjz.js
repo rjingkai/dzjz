@@ -53,6 +53,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 //            $(".isdzjzs").attr("lay-reqtext","未上传电子卷宗原因必填");
         }else{
             $(".isdzjzs").hide();
+            $("#jznr").val("");
 //            $(".isdzjzs").removeAttr("lay-verify");
 //            $(".isdzjzs").removeAttr("lay-reqtext");
         }
@@ -66,6 +67,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 //            $(".isbls").attr("lay-reqtext","没有笔录原因必填");
         }else{
             $(".isbls").hide();
+            $("#blnr").val("");
 //            $(".isbls").removeAttr("lay-verify");
 //            $(".isbls").removeAttr("lay-reqtext");
         }
