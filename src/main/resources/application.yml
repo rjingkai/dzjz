@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@192.168.1.198:1521:sjsbazx
+    url: jdbc:oracle:thin:@192.168.1.193:1521:sjsbazx
     username: lk
     password: lk
   thymeleaf:

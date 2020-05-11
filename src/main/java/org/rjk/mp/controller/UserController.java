@@ -1,5 +1,6 @@
 package org.rjk.mp.controller;
 
+import org.rjk.mp.config.R;
 import org.rjk.mp.mapper.UserMapper;
 import org.rjk.mp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,25 +61,19 @@ public class UserController {
 
 
     @RequestMapping("/dl")
-    public Map<String, String> denglu(String username, String password, HttpSession session) {
+    public R denglu(String username, String password, HttpSession session) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
         User u = userMapper.denglu(user);
-        Map<String, String> map = new HashMap<>();
         if (u == null) {
-            map.put("code", "1");
-            map.put("msg", "用户名密码错误！");
+            return R.fail(1,"用户名密码错误");
         } else {
             String orgid = userMapper.getOrg(u.getUserid());
-            map.put("code", "0");
-            map.put("msg", orgid);
             session.setAttribute("username",u.getUsername());
             session.setAttribute("name",u.getName());
             session.setAttribute("orgid",orgid);
-
+            return R.success(0,orgid);
         }
-
-        return map;
     }
 }
